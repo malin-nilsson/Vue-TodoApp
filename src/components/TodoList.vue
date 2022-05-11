@@ -1,12 +1,13 @@
 <template>
   <div class="todo-content">
-    <TodoListAdd @addTodo="handleNewTodo($event)" />
+    <TodoListAdd @handleNewTodo="addTodo($event)" />
     <TodoListItem
-      v-for="(todo, i) in todos"
-      :key="i"
+      v-for="todo in todos"
+      :key="todo.id"
+      :id="todo.id"
       :task="todo.task"
       :status="todo.done"
-      @removeTodo="handleRemovedTodo($event)"
+      @handleRemovedTodo="removeTodo($event)"
     />
   </div>
 </template>
@@ -26,12 +27,12 @@ import TodoListItem from "./TodoListItem.vue";
 export default class TodoList extends Vue {
   todos: Todo[] = [];
 
-  handleNewTodo(todo: string) {
+  addTodo(todo: string) {
     this.todos.push(new Todo(todo));
-    console.log(this.todos);
   }
 
-  handleRemovedTodo(index: number) {
+  removeTodo(task: string) {
+    let index = this.todos.findIndex((todo) => todo.task === task);
     this.todos.splice(index, 1);
   }
 }

@@ -17,7 +17,7 @@ export default class TodoListAdd extends Vue {
   todoInput = "";
 
   getTodoInput(todo: string) {
-    this.$emit("addTodo", todo);
+    this.$emit("handleNewTodo", todo);
     this.todoInput = "";
   }
 }
