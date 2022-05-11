@@ -2,7 +2,7 @@
   <div class="todo-list">
     <div class="todo-list-item">
       <span>{{ task }}</span>
-      <span @click="getRemovedTodo(key)">
+      <span class="remove-wrapper" @click="getRemovedTodo(key)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 320 512"
@@ -47,12 +47,15 @@ export default class TodoListItem extends Vue {
     font-size: 1.2rem;
     list-style: none;
     border: 1px solid #000;
-    margin: 10px 0px;
+    margin: 3px 0px;
 
     &:hover {
-      color: #fff;
-      background-color: rgb(108, 66, 154, 0.8);
+      background-color: rgb(108, 66, 154, 0.5);
     }
+  }
+
+  .remove-wrapper {
+    display: flex;
   }
 
   svg:hover {
