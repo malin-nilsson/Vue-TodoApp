@@ -1,5 +1,5 @@
 <template>
-  <span class="remove-wrapper" @click="getRemovedTodo(title)">
+  <span class="remove-box" @click="getRemovedTodo(title)">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" height="20px">
       <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
       <path
@@ -23,7 +23,7 @@ export default class TodoListRemove extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.remove-wrapper {
+.remove-box {
   display: flex;
 }
 

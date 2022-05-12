@@ -1,8 +1,8 @@
 <template>
   <div class="sort-button-box">
-    Sort by
-    <button class="sort-button" @click="sortByName">Name</button>
-    <button class="sort-button">Date</button>
+    Sort
+    <button class="sort-button" @click="sortByName">Alphabetically</button>
+    <button class="sort-button" @click="sortByDate">Creation date</button>
   </div>
 </template>
 
@@ -23,7 +23,9 @@ export default class TodoSort extends Vue {
     this.$emit("handleSortByName", this.todos);
   }
 
-  // sortByDate() {}
+  sortByDate() {
+    this.$emit("handleSortByDate", this.todos);
+  }
 }
 </script>
 
