@@ -1,7 +1,8 @@
 <template>
   <div class="todo-content">
-    <TodoSort />
+    <TodoHeader />
     <TodoListAdd @handleNewTodo="addTodo($event)" />
+    <TodoSort />
     <div v-for="todo in todos" :key="todo.id" class="todo-list">
       <TodoListItem
         :todo="todo"
@@ -18,12 +19,14 @@ import { Options, Vue } from "vue-class-component";
 import TodoListAdd from "./TodoListAdd.vue";
 import TodoListItem from "./TodoListItem.vue";
 import TodoSort from "./TodoSort.vue";
+import TodoHeader from "./TodoHeader.vue";
 
 @Options({
   components: {
     TodoListAdd,
     TodoListItem,
     TodoSort,
+    TodoHeader,
   },
 })
 export default class TodoList extends Vue {

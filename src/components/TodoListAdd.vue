@@ -28,13 +28,23 @@ export default class TodoListAdd extends Vue {
 
 .btn {
   @include btn();
+  transition: background-color 0.1s ease-in-out;
+
+  &:hover {
+    background-color: rgb(129, 101, 187, 0.6);
+    color: #000;
+  }
+
+  @include tablet-and-up {
+    padding: 12px 25px;
+  }
 }
 
 .input-wrapper {
   @include flex(row, center, center, 10px);
   width: 100%;
   margin: 0 auto;
-  padding: 30px 0px 10px;
+  padding: 10px 0px 30px;
 }
 
 input {

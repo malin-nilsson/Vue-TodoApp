@@ -39,7 +39,7 @@ export default class TodoSort extends Vue {
   text-decoration: line-through;
 }
 .sort-button-box {
-  @include flex(row, flex-end, center);
+  @include flex(row, flex-start, center);
 }
 .sort-button {
   @include flex(row, center, center, 10px);
