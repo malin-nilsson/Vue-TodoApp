@@ -1,5 +1,3 @@
-let counter = 0;
-
 export class Todo {
     done: boolean;
     created: string;
@@ -9,7 +7,7 @@ export class Todo {
         this.task = task;
         this.done = false;
         this.created = new Date().toLocaleDateString();
-        this.id = counter++;
+        this.id = Date.now()
     }
 }
 
