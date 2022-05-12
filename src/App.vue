@@ -1,16 +1,16 @@
 <template>
   <div class="todo-wrapper">
-    <TodoList />
+    <TodoApp />
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import TodoList from "./components/TodoList.vue";
+import TodoApp from "./components/TodoApp.vue";
 
 @Options({
   components: {
-    TodoList,
+    TodoApp,
   },
 })
 export default class App extends Vue {}

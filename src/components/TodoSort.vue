@@ -1,4 +1,5 @@
 <template>
+  <!-- SORT BUTTONS -->
   <div class="sort-button-box">
     Sort
     <button class="sort-button" @click="sortByName">Alphabetically</button>
@@ -36,9 +37,7 @@ export default class TodoSort extends Vue {
 
 <style lang="scss" scoped>
 @import "@/styles/mixins";
-.lineThrough {
-  text-decoration: line-through;
-}
+
 .sort-button-box {
   @include flex(row, flex-start, center, 14px);
   flex-wrap: wrap;

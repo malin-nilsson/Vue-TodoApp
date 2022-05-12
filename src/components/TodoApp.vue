@@ -1,7 +1,7 @@
 <template>
   <div class="todo-content">
     <TodoHeader />
-    <TodoListAdd @handleNewTodo="addTodo($event)" />
+    <TodoAdd @handleNewTodo="addTodo($event)" />
     <TodoSort
       :todos="todos"
       @handleSortByName="sortByName($event)"
@@ -9,7 +9,7 @@
       @handleSortByStatus="sortByStatus($event)"
     />
     <div v-for="todo in todos" :key="todo.id" class="todo-list">
-      <TodoListItem
+      <TodoItem
         :todo="todo"
         @handleRemovedTodo="removeTodo($event)"
         @handleToggle="toggleTodoStatus($event)"
@@ -21,20 +21,20 @@
 <script lang="ts">
 import { Todo } from "../models/Todo";
 import { Options, Vue } from "vue-class-component";
-import TodoListAdd from "./TodoListAdd.vue";
-import TodoListItem from "./TodoListItem.vue";
+import TodoAdd from "./TodoAdd.vue";
+import TodoItem from "./TodoItem.vue";
 import TodoSort from "./TodoSort.vue";
 import TodoHeader from "./TodoHeader.vue";
 
 @Options({
   components: {
-    TodoListAdd,
-    TodoListItem,
-    TodoSort,
     TodoHeader,
+    TodoAdd,
+    TodoSort,
+    TodoItem,
   },
 })
-export default class TodoList extends Vue {
+export default class TodoApp extends Vue {
   todos: Todo[] = [];
 
   mounted() {

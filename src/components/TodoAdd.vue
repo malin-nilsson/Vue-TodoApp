@@ -1,5 +1,6 @@
 <template>
-  <div class="input-wrapper">
+  <!-- INPUT WRAPPER FOR ADDING TODO -->
+  <div class="input-box">
     <input
       type="text"
       v-model="todoInput"
@@ -13,7 +14,7 @@
 <script lang="ts">
 import { Vue } from "vue-class-component";
 
-export default class TodoListAdd extends Vue {
+export default class TodoAdd extends Vue {
   todoInput = "";
 
   getTodoInput(todo: string) {
@@ -40,7 +41,7 @@ export default class TodoListAdd extends Vue {
   }
 }
 
-.input-wrapper {
+.input-box {
   @include flex(row, center, center, 10px);
   width: 100%;
   margin: 0 auto;
