@@ -6,6 +6,7 @@
       :todos="todos"
       @handleSortByName="sortByName($event)"
       @handleSortByDate="sortByDate($event)"
+      @handleSortByStatus="sortByStatus($event)"
     />
     <div v-for="todo in todos" :key="todo.id" class="todo-list">
       <TodoListItem
@@ -66,6 +67,20 @@ export default class TodoList extends Vue {
   sortByDate(todos: Todo[]) {
     this.todos.sort(function (a, b) {
       return b.id - a.id;
+    });
+  }
+
+  sortByStatus(todos: Todo[]) {
+    this.todos = this.todos.sort((a, b) => {
+      let x = b.done;
+      let y = a.done;
+      if (x < y) {
+        return -1;
+      }
+      if (x > y) {
+        return 1;
+      }
+      return 0;
     });
   }
 

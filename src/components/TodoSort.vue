@@ -3,6 +3,7 @@
     Sort
     <button class="sort-button" @click="sortByName">Alphabetically</button>
     <button class="sort-button" @click="sortByDate">Creation date</button>
+    <button class="sort-button" @click="sortByStatus">Completed</button>
   </div>
 </template>
 
@@ -25,6 +26,10 @@ export default class TodoSort extends Vue {
 
   sortByDate() {
     this.$emit("handleSortByDate", this.todos);
+  }
+
+  sortByStatus() {
+    this.$emit("handleSortByStatus", this.todos);
   }
 }
 </script>
