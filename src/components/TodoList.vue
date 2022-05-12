@@ -6,7 +6,7 @@
       <TodoListItem
         :todo="todo"
         @handleRemovedTodo="removeTodo($event)"
-        @handleToggle="toggleTodo($event)"
+        @handleToggle="toggleTodoStatus($event)"
       />
     </div>
   </div>
@@ -29,19 +29,39 @@ import TodoSort from "./TodoSort.vue";
 export default class TodoList extends Vue {
   todos: Todo[] = [];
 
+  mounted() {
+    this.getLocalStorage();
+  }
+
   addTodo(todo: string) {
     this.todos.push(new Todo(todo));
+    this.setLocalStorage();
   }
 
   removeTodo(task: string) {
     let index = this.todos.findIndex((todo) => todo.task === task);
     this.todos.splice(index, 1);
+    this.setLocalStorage();
   }
 
-  toggleTodo(task: string) {
+  toggleTodoStatus(task: string) {
     let todo = this.todos.find((todo) => todo.task === task);
     if (todo) {
       todo.done = !todo.done;
+      this.setLocalStorage();
+    }
+  }
+
+  setLocalStorage() {
+    localStorage.setItem("todos", JSON.stringify(this.todos));
+  }
+
+  getLocalStorage() {
+    let listFromLocalStorage = localStorage.getItem("todos");
+    if (!listFromLocalStorage) {
+      this.setLocalStorage();
+    } else {
+      this.todos = JSON.parse(listFromLocalStorage);
     }
   }
 }
