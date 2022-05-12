@@ -33,21 +33,20 @@ export default class TodoSort extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import "@/styles/mixins";
 .lineThrough {
   text-decoration: line-through;
 }
 .sort-button-box {
-  display: flex;
-  justify-content: flex-end;
+  @include flex(row, flex-end, center);
 }
 .sort-button {
+  @include flex(row, center, center, 10px);
+  @include btn(3px, 0.9rem);
   background-color: white;
   border: 2px solid rgb(78, 51, 145);
   color: #000;
-  font-size: 0.9rem;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+  padding: 5px;
 }
 </style>

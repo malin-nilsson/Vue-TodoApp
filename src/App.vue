@@ -18,6 +18,8 @@ export default class App extends Vue {}
 
 
 <style lang="scss">
+@import "./styles/mixins";
+
 body {
   padding: 0;
   margin: 0;
@@ -25,13 +27,10 @@ body {
 }
 
 #app {
+  @include flex(column, flex-start, center, 0);
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  align-items: center;
   background-image: url("./assets/hero-bg.svg");
   background-position: center;
   background-size: cover;
@@ -40,18 +39,23 @@ body {
 }
 
 .todo-wrapper {
-  width: 40%;
+  @include flex(column, flex-start, center, 0);
+  width: 90%;
   height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   margin: 60px auto;
   background-color: #fff;
   border-radius: 20px;
   color: #000;
   padding: 10px 0px;
   overflow-y: scroll;
+
+  @include tablet-and-up {
+    width: 70%;
+  }
+
+  @include desktop-and-up {
+    width: 40%;
+  }
 }
 </style>
 

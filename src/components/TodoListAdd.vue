@@ -6,7 +6,7 @@
       @keypress.enter="getTodoInput(todoInput)"
       placeholder="Add new task..."
     />
-    <button @click="getTodoInput(todoInput)">Add</button>
+    <button class="btn" @click="getTodoInput(todoInput)">Add</button>
   </div>
 </template>
 
@@ -24,22 +24,15 @@ export default class TodoListAdd extends Vue {
 </script>
 
 <style lang="scss">
-button {
-  padding: 10px 15px;
-  background-color: rgb(78, 51, 145);
-  color: #fff;
-  border: none;
-  font-size: 1.1rem;
-  border-radius: 5px;
-  cursor: pointer;
+@import "@/styles/mixins";
+
+.btn {
+  @include btn();
 }
 
 .input-wrapper {
-  display: flex;
+  @include flex(row, center, center, 10px);
   width: 100%;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
   margin: 0 auto;
   padding: 30px 0px 10px;
 }
@@ -47,9 +40,13 @@ button {
 input {
   width: 100%;
   padding: 10px 0px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   border: none;
   border-bottom: 2px solid #000;
+
+  @include tablet-and-up {
+    font-size: 1.1rem;
+  }
 }
 
 input:focus {

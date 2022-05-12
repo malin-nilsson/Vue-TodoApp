@@ -35,19 +35,21 @@ export default class TodoListItem extends Vue {
 </script>
 
 <style lang="scss" scoped>
+@import "@/styles/mixins";
 .todo-list-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(row, space-between, center, 0);
   padding: 13px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   list-style: none;
   border: 1px solid #000;
   margin: 3px 0px;
 
   &:hover {
     background-color: rgb(129, 101, 187, 0.6);
+  }
+
+  @include tablet-and-up {
+    font-size: 1.2rem;
   }
 
   .line-through {
