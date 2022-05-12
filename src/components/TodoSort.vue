@@ -41,6 +41,11 @@ export default class TodoSort extends Vue {
 }
 .sort-button-box {
   @include flex(row, flex-start, center, 14px);
+  flex-wrap: wrap;
+
+  @include tablet-and-up {
+    flex-wrap: nowrap;
+  }
 }
 .sort-button {
   @include flex(row, center, center);
