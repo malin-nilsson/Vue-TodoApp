@@ -1,12 +1,15 @@
 <template>
-  <div v-if="todo.done" class="todo-list-item" @click="toggleStatus(todo.task)">
-    <span class="line-through">{{ todo.task }}</span>
-    <TodoListRemove :title="todo.task" @removeTodo="removeTodo($event)" />
+  <div v-if="todo.done" class="todo-list-box" @click="toggleStatus(todo.task)">
+    <div class="todo-done">
+      <span>{{ todo.task }}</span>
+      <TodoListRemove :title="todo.task" @removeTodo="removeTodo($event)" />
+    </div>
   </div>
-
-  <div v-else class="todo-list-item" @click="toggleStatus(todo.task)">
-    <span>{{ todo.task }}</span>
-    <TodoListRemove :title="todo.task" @removeTodo="removeTodo($event)" />
+  <div v-else class="todo-list-box" @click="toggleStatus(todo.task)">
+    <div class="todo-not-done">
+      <span>{{ todo.task }}</span>
+      <TodoListRemove :title="todo.task" @removeTodo="removeTodo($event)" />
+    </div>
   </div>
 </template>
 
@@ -36,9 +39,8 @@ export default class TodoListItem extends Vue {
 
 <style lang="scss" scoped>
 @import "@/styles/mixins";
-.todo-list-item {
+.todo-list-box {
   @include flex(row, space-between, center, 0);
-  padding: 13px;
   font-size: 1rem;
   list-style: none;
   border: 1px solid #000;
@@ -52,8 +54,23 @@ export default class TodoListItem extends Vue {
     font-size: 1.2rem;
   }
 
-  .line-through {
+  .todo-done {
+    @include flex(row, space-between, center, 0);
     text-decoration: line-through;
+    padding: 13px;
+    background-color: rgb(129, 101, 187, 0.6);
+    width: 100%;
+  }
+
+  .todo-not-done {
+    @include flex(row, space-between, center, 0);
+    padding: 13px;
+    background-color: #fff;
+    width: 100%;
+
+    &:hover {
+      background-color: rgb(129, 101, 187, 0.6);
+    }
   }
 }
 </style>
