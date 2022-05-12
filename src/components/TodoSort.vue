@@ -1,35 +1,29 @@
 <template>
   <div class="sort-button-box">
-    <button class="sort-button">
-      <span>Sort by </span>
-      <span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 384 512"
-          height="10px"
-          color="#fff"
-        >
-          <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-          <path
-            d="M192 384c-8.188 0-16.38-3.125-22.62-9.375l-160-160c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L192 306.8l137.4-137.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-160 160C208.4 380.9 200.2 384 192 384z"
-          />
-        </svg>
-      </span>
-    </button>
+    Sort by
+    <button class="sort-button" @click="sortByName">Name</button>
+    <button class="sort-button">Date</button>
   </div>
 </template>
 
 <script lang="ts">
 import { Prop } from "vue-property-decorator";
 import { Vue } from "vue-class-component";
+import { Todo } from "@/models/Todo";
 
 export default class TodoSort extends Vue {
   @Prop() status = false;
+  @Prop() todos!: Todo[];
 
   handleToggle(status: boolean) {
-    console.log("hej");
     this.status != status;
   }
+
+  sortByName() {
+    this.$emit("handleSortByName", this.todos);
+  }
+
+  // sortByDate() {}
 }
 </script>
 
@@ -39,14 +33,20 @@ export default class TodoSort extends Vue {
   text-decoration: line-through;
 }
 .sort-button-box {
-  @include flex(row, flex-start, center);
+  @include flex(row, flex-start, center, 14px);
 }
 .sort-button {
-  @include flex(row, center, center, 10px);
+  @include flex(row, center, center);
   @include btn(3px, 0.9rem);
-  background-color: white;
+  background-color: #fff;
   border: 2px solid rgb(78, 51, 145);
   color: #000;
-  padding: 5px;
+  padding: 5px 10px;
+
+  &:hover {
+    background-color: rgb(78, 51, 145);
+    border: 2px solid #fff;
+    color: #fff;
+  }
 }
 </style>

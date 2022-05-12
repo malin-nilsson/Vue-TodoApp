@@ -2,7 +2,7 @@
   <div class="todo-content">
     <TodoHeader />
     <TodoListAdd @handleNewTodo="addTodo($event)" />
-    <TodoSort />
+    <TodoSort :todos="todos" @handleSortByName="sortByName($event)" />
     <div v-for="todo in todos" :key="todo.id" class="todo-list">
       <TodoListItem
         :todo="todo"
@@ -53,6 +53,10 @@ export default class TodoList extends Vue {
       todo.done = !todo.done;
       this.setLocalStorage();
     }
+  }
+
+  sortByName(todos: Todo[]) {
+    this.todos = this.todos.sort((a, b) => a.task.localeCompare(b.task));
   }
 
   setLocalStorage() {

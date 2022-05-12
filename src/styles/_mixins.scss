@@ -13,7 +13,7 @@
   }
 
 // Flex
-  @mixin flex($dir, $jc, $ai, $gap: 0) {
+  @mixin flex($dir, $jc, $ai, $gap: 0px) {
     display: flex;
     flex-direction: $dir;
     justify-content: $jc;
