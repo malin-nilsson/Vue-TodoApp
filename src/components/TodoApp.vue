@@ -6,14 +6,19 @@
       :todos="todos"
       @handleSortByName="sortByName($event)"
       @handleSortByDate="sortByDate($event)"
+      @handleSortByDone="sortByDone($event)"
+      @handleSortByNotDone="sortByNotDone($event)"
     />
-    <div v-for="todo in todos" :key="todo.id" class="todo-list">
-      <TodoItem
-        :todo="todo"
-        @handleRemovedTodo="removeTodo($event)"
-        @handleToggle="toggleTodoStatus($event)"
-      />
-    </div>
+    <TransitionGroup name="list" tag="ul">
+      <li v-for="todo in todos" :key="todo.id" class="todo-box">
+        <TodoItem
+          :todo="todo"
+          :todos="todos"
+          @handleRemovedTodo="removeTodo($event)"
+          @handleToggle="toggleTodoStatus($event)"
+        />
+      </li>
+    </TransitionGroup>
   </div>
 </template>
 
@@ -60,12 +65,24 @@ export default class TodoApp extends Vue {
   }
 
   sortByName(todos: Todo[]) {
-    this.todos = this.todos.sort((a, b) => a.task.localeCompare(b.task));
+    todos.sort((a, b) => a.task.localeCompare(b.task));
   }
 
   sortByDate(todos: Todo[]) {
-    this.todos.sort(function (a, b) {
+    todos.sort(function (a, b) {
       return b.id - a.id;
+    });
+  }
+
+  sortByDone(todos: Todo[]) {
+    todos.sort((x, y) => {
+      return x.done === y.done ? 0 : x.done ? -1 : 1;
+    });
+  }
+
+  sortByNotDone(todos: Todo[]) {
+    todos.sort((x, y) => {
+      return x.done === y.done ? 0 : x.done ? 1 : -1;
     });
   }
 
@@ -87,12 +104,28 @@ export default class TodoApp extends Vue {
 <style lang="scss" scoped>
 .todo-content {
   width: 80%;
-  padding: 20px 0px;
+  padding: 10px 0px;
 }
-
-.todo-list {
+.todo-box {
   padding: 20px 0px 0px;
   margin: 0px;
   width: 100%;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
 }
 </style>

@@ -2,8 +2,12 @@
   <!-- SORT BUTTONS -->
   <div class="sort-button-box">
     Sort
-    <button class="sort-button" @click="sortByName">Alphabetically</button>
-    <button class="sort-button" @click="sortByDate">Creation date</button>
+    <button class="sort-button" @click="sortByName(todos)">
+      Alphabetically
+    </button>
+    <button class="sort-button" @click="sortByDate(todos)">Created</button>
+    <button class="sort-button" @click="sortByDone(todos)">Done</button>
+    <button class="sort-button" @click="sortByNotDone(todos)">Not done</button>
   </div>
 </template>
 
@@ -20,12 +24,20 @@ export default class TodoSort extends Vue {
     this.status != status;
   }
 
-  sortByName() {
-    this.$emit("handleSortByName", this.todos);
+  sortByName(todos: Todo[]) {
+    this.$emit("handleSortByName", todos);
   }
 
-  sortByDate() {
-    this.$emit("handleSortByDate", this.todos);
+  sortByDate(todos: Todo[]) {
+    this.$emit("handleSortByDate", todos);
+  }
+
+  sortByDone(todos: Todo[]) {
+    this.$emit("handleSortByDone", todos);
+  }
+
+  sortByNotDone(todos: Todo[]) {
+    this.$emit("handleSortByNotDone", todos);
   }
 }
 </script>
@@ -43,7 +55,7 @@ export default class TodoSort extends Vue {
 }
 .sort-button {
   @include flex(row, center, center);
-  @include btn(3px, 0.9rem);
+  @include btn(3px, 0.8rem);
   background-color: #fff;
   border: 2px solid rgb(78, 51, 145);
   color: #000;

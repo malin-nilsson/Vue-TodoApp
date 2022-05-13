@@ -41,8 +41,8 @@ body {
 .todo-wrapper {
   @include flex(column, flex-start, center, 0);
   width: 90%;
-  height: 80vh;
-  margin: 60px auto;
+  height: 90vh;
+  margin: 40px auto;
   background-color: #fff;
   border-radius: 20px;
   color: #000;
