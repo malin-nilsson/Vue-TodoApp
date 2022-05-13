@@ -1,6 +1,11 @@
 export class Todo {
-    constructor(public todo: string, public done: boolean) {
-        this.todo = todo;
+    done: boolean;
+    id: number;
+
+    constructor(public task: string) {
+        this.task = task;
         this.done = false;
+        this.id = Date.now();
     }
 }
+

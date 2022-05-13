@@ -1,0 +1,35 @@
+// Tablet styling
+@mixin tablet-and-up {
+    @media screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+// Desktop styling
+  @mixin desktop-and-up {
+    @media screen and (min-width: 1100px) {
+      @content;
+    }
+  }
+
+// Flex
+  @mixin flex($dir, $jc, $ai, $gap: 0px) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $jc;
+    align-items: $ai;
+    gap: $gap;
+  }
+
+  // Button styling
+  @mixin btn($radius: 5px, $fontsize: 1.1rem) {
+    color: white;
+    background-color: rgb(78, 51, 145);
+    padding: 10px 15px;
+    border-radius: $radius;
+    font-size: $fontsize;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
