@@ -45,6 +45,7 @@ export default class TodoApp extends Vue {
     this.getLocalStorage();
   }
 
+  // ADD TODO + REMOVE TODO + TOGGLE STATUS
   addTodo(todo: string) {
     this.todos.push(new Todo(todo));
     this.setLocalStorage();
@@ -64,6 +65,7 @@ export default class TodoApp extends Vue {
     }
   }
 
+  // SORTING FUNCTIONS
   sortByName(todos: Todo[]) {
     todos.sort((a, b) => a.task.localeCompare(b.task));
   }
@@ -86,6 +88,7 @@ export default class TodoApp extends Vue {
     });
   }
 
+  // LOCAL STORAGE
   setLocalStorage() {
     localStorage.setItem("todos", JSON.stringify(this.todos));
   }
