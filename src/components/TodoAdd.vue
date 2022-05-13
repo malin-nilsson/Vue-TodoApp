@@ -18,8 +18,12 @@ export default class TodoAdd extends Vue {
   todoInput = "";
 
   getTodoInput(todo: string) {
-    this.$emit("handleNewTodo", todo);
-    this.todoInput = "";
+    if (this.todoInput === "") {
+      alert("You forgot to add a todo!");
+    } else {
+      this.$emit("handleNewTodo", todo);
+      this.todoInput = "";
+    }
   }
 }
 </script>
