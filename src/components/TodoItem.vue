@@ -43,7 +43,6 @@ import TodoRemove from "./TodoRemove.vue";
 })
 export default class TodoItem extends Vue {
   @Prop() todo!: Todo;
-  @Prop() todos!: Todo[];
 
   removeTodo(todo: string) {
     this.$emit("handleRemovedTodo", todo);

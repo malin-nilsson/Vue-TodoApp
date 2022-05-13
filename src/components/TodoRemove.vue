@@ -16,7 +16,7 @@ import { Prop } from "vue-property-decorator";
 
 export default class TodoRemove extends Vue {
   @Prop() title!: string;
-  @Prop() id!: number;
+
   getRemovedTodo(title: string) {
     this.$emit("removeTodo", title);
   }
