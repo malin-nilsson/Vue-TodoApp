@@ -1,24 +1,17 @@
-# vue-todo-app
+# Vue To-Do App
+To-do app built with Vue, TypeScript and Sass. Users can add and delete tasks, mark them as done and sort tasks by name, creation date and status. Tasks are saved in local storage.
 
-## Project setup
-```
-npm install
-```
+![]()
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Installation
+1. Clone the repo\
+`git clone https://github.com/malin-nilsson/Vue-Todo-App`
 
-### Compiles and minifies for production
-```
-npm run build
-```
+2. Install npm packages\
+`npm install`
 
-### Lints and fixes files
-```
-npm run lint
-```
+3. Run Vue\
+`npm run serve`
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Author
+- GitHub - [malin-nilsson](https://github.com/malin-nilsson)
