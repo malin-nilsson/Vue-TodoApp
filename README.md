@@ -7,7 +7,7 @@ Live site url: https://taskly-vue-app.netlify.app/
 
 ## Installation
 1. Clone the repo\
-`git clone https://github.com/malin-nilsson/Vue-Todo-App`
+`git clone https://github.com/malin-nilsson/Vue-TodoApp`
 
 2. Install npm packages\
 `npm install`
