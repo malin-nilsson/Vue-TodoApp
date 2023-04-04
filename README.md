@@ -1,7 +1,7 @@
 # Vue To-Do App
-To-do app built with Vue, TypeScript and Sass. Users can add and delete tasks, mark them as done and sort tasks by name, creation date and status. Tasks are saved in local storage.
+School project using Vue, TypeScript and Sass. Users can add and delete tasks, mark them as done and sort tasks by name, creation date and status.
 
-Live site url: https://taskly-vue-app.netlify.app/
+https://taskly-vue-app.netlify.app/
 
 ![](./src/assets/screenshot.jpg)
 
